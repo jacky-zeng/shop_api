@@ -1,13 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;  //用于检查已认证用户的令牌和使用作用域。
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -26,4 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 自定义用Passport授权登录：用户名+密码  使用name字段作为用户名
+     * @param $username
+     * @return mixed
+     */
+    public function findForPassport($username)
+    {
+        return self::where('name', $username)->first();
+    }
+
 }

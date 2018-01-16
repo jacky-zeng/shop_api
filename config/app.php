@@ -176,7 +176,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        //新增Laravel\Passport插件
+        Laravel\Passport\PassportServiceProvider::class,
+        //新增 api response
+        EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
     ],
 
     /*
