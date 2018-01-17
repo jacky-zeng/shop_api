@@ -57,6 +57,7 @@ class LoginController extends Controller
         if(array_get($data, 'error') || !array_get($data, 'access_token')){
             return $this->errorResponse(array_get($data, 'error'), Code::UNAUTHORIZED_ERROR);
         }
+        unset($data['refresh_token']);  //暂时不使用 refresh_token
         return $this->successResponse($data, '登录成功');
     }
 

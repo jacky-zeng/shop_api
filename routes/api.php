@@ -17,9 +17,8 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::group([
-    'prefix'=>'/v1',
-    'middleware' => []
-], function () {
-    Route::post('/user/login', 'Api\LoginController@login');
+Route::post('login', 'Api\LoginController@login')->name('login');  //登录
+
+Route::group(['middleware' => 'api_token'], function(){
+    Route::post('userInfo', 'Api\UserController@userInfo');        //查询用户信息
 });
