@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,12 +11,10 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::group(['middleware' => ['query_log']], function(){
+    Route::any('login', 'Api\LoginController@login')->name('login');  //登录
+});
 
-Route::post('login', 'Api\LoginController@login')->name('login');  //登录
-
-Route::group(['middleware' => 'api_token'], function(){
+Route::group(['middleware' => ['query_log', 'api_token']], function(){
     Route::post('userInfo', 'Api\UserController@userInfo');        //查询用户信息
 });
