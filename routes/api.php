@@ -12,7 +12,7 @@
 */
 
 Route::group(['middleware' => ['query_log']], function(){
-    Route::any('login', 'Api\LoginController@login')->name('login');  //登录
+    Route::any('login', 'Api\UserController@login')->name('login');  //登录
 });
 
 Route::group(['middleware' => ['query_log', 'api_token']], function(){
