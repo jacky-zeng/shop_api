@@ -2,6 +2,7 @@
 
 use App\Classes\Code;
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Validator;
@@ -14,7 +15,31 @@ class UserController extends Controller
     {
         $params = $request->all();
         $user_id = array_get($params, 'user_info.user_id');
-        return $this->successResponse(['user_id' => $user_id]);
+        $userRepository = new UserRepository();
+        $data = $userRepository->userInfo($user_id);
+        return $this->successResponse($data);
+    }
+
+    // 注册
+    public function register(Request $request)
+    {
+        $params = $request->all();
+        $validator = Validator::make($params, [
+            'username' => 'required',
+            'email' => 'required|between:5,32',
+            'password' => 'required|between:6,32',
+            'confirm_password' => 'required|between:6,32'
+        ]);
+        if ($validator->fails()) {
+            return $this->errorResponse(current($validator->errors()), Code::PARAMETER_ERROR);
+        }
+        $userRepository = new UserRepository();
+        $rs = $userRepository->createUser($params);
+
+        if (!$rs) {
+            return $this->errorResponse($userRepository->firstErrorMessage('注册失败'), Code::SYSTEM_ERROR);
+        }
+        return $this->successResponse([], '注册成功');
     }
 
     //登录接口
@@ -32,6 +57,15 @@ class UserController extends Controller
             return $this->sendFailedLoginResponse($request);
         }
         return $this->sendLoginResponse($request);
+    }
+
+    //退出登录
+    public function logout(Request $request){
+        $params = $request->all();
+        $user_id = array_get($params, 'user_info.user_id');
+        $userRepository = new UserRepository();
+        $userRepository->logout($user_id);
+        return $this->successResponse([], '退出登录成功');
     }
 
     /***************** 认证代码   begin *************************/
