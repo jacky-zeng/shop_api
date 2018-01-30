@@ -5,7 +5,6 @@ use App\Models\Area;
 
 class AreasTableSeeder extends Seeder
 {
-    //新增的seed文件 需要先运行  composer dump-autoload 再运行 php artisan db:seed --class=AreasTableSeeder 才能成功
 
     /**
      * Run the database seeds.

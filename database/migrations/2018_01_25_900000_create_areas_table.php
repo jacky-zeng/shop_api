@@ -20,7 +20,7 @@ class CreateAreasTable extends Migration
             $table->string('name', 16)->comment('名称');
             $table->unsignedInteger('up_id')->index()->comment('父级id');
             $table->unsignedTinyInteger('depth')->index()->comment('区域等级深度');
-            $table->unsignedInteger('sort')->default(0)->comment('排序，值越大越靠前');
+            $table->unsignedInteger('sort')->default(0)->comment('排序，值越小越靠前');
             $table->string('pinyin', 100)->default('')->comment('拼音');
             $table->timestamps();
         });

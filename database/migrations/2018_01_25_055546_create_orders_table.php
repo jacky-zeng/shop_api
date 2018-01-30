@@ -20,9 +20,9 @@ class CreateOrdersTable extends Migration
             $table->string('out_number', 50)->index()->default(null)->comment('订单编号，外部支付时使用，有些外部支付系统要求特定的订单编号');
             $table->unsignedInteger('user_id')->index()->comment('用户UID');
             $table->unsignedInteger('merchant_id')->index()->comment('商家店铺id');
-            $table->unsignedInteger('total_amount')->comment('订单总价格(单位分)');
-            $table->unsignedInteger('order_amount')->comment('需要支付的订单金额(单位分)');
-            $table->unsignedInteger('send_amount')->default(0)->comment('配送费(单位分)');
+            $table->decimal("total_amount", 18, 2)->comment('订单总价格(单位元)');
+            $table->decimal("order_amount", 18, 2)->comment('需要支付的订单金额(单位元)');
+            $table->decimal("send_amount", 18, 2)->default(0)->comment('配送费(单位元)');
             $table->tinyInteger('pay_type')->index()->comment('支付方式类型（1-支付宝 2-微信）');
             $table->tinyInteger('order_status')->index()->default(1)->comment('订单状态：1(默认):待支付 2:待配送 3:已配送 4:已送达(已完成) 5:用户已取消订单 6:商家取消订单 7:系统自动取消 8:后台取消');
             $table->tinyInteger('pay_status')->index()->default(1)->comment('付款状态：0(默认):未付款;1:已付款;');

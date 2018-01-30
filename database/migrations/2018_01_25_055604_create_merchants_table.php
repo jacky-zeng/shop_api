@@ -36,12 +36,12 @@ class CreateMerchantsTable extends Migration
             $table->unsignedInteger('score')->default(0)->comment('综合评分（星级）');
             $table->unsignedInteger('average_time')->default(60)->comment('平均配送时间，默认60分钟');
             $table->tinyInteger('is_shelves')->default(1)->comment('上下架状态  默认1已上架  0已下架');
-            $table->unsignedInteger('fee')->default(0)->comment('配送费 以分为单位');
-            $table->unsignedInteger('min_delivery')->default(0)->comment('起送价 以分为单位');
+            $table->decimal('fee', 18, 2)->default(0)->comment('配送费 以元为单位');
+            $table->decimal('min_delivery', 18, 2)->default(0)->comment('起送价 以元为单位');
             $table->unsignedInteger('collection_count')->default(0)->comment('总收藏数量');
             $table->unsignedInteger('sales_count')->default(0)->comment('总销售数量');
             $table->unsignedInteger('sales_count_month')->default(0)->comment('月销售数量');
-            $table->unsignedInteger('sales_total')->default(0)->comment('总营业额 单位 分');
+            $table->decimal('sales_total', 18, 2)->default(0)->comment('总营业额 单位元');
             $table->unsignedInteger('click_total')->default(0)->comment('点击量');
             $table->timestamps();
         });

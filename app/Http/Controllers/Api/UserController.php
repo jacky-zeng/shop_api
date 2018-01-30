@@ -69,7 +69,8 @@ class UserController extends Controller
     }
 
     /***************** 认证代码   begin *************************/
-    // 登录用户名标示为name字段
+    //执行完表migrate和seed后  再运行 php artisan passport:install 初始化该插件数据
+    //登录用户名标示为name字段
     public function username()
     {
         return 'username'; //填充到credentials函数内

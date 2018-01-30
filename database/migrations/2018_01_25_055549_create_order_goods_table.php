@@ -22,7 +22,7 @@ class CreateOrderGoodsTable extends Migration
             $table->unsignedInteger('product_id')->index()->comment('商品sku_id');
             $table->string('goods_name', 64)->comment('商品名称');
             $table->string('goods_image')->comment('商品图片');
-            $table->unsignedInteger('price')->default(0)->comment('单价(单位分)');
+            $table->decimal("price", 18, 2)->default(0)->comment('单价(单位元)');
             $table->unsignedInteger('goods_num')->comment('商品数量');
             $table->string('sku_detail')->nullable()->comment('商品sku明细');
             $table->timestamps();

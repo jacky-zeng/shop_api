@@ -21,7 +21,7 @@ class Good extends Model
     const SHELVES_STATUS_YES = 1;
     const SHELVES_STATUS_NO  = 0;
 
-    //售卖状态 1-在售 2-停售 默认 1（商家管理）
+    //售卖状态 1-在售 0-停售 默认 1（商家管理）
     const SALE_STATUS_YES = 1;
     const SALE_STATUS_NO  = 0;
 
