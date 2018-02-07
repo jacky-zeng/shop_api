@@ -63,4 +63,10 @@ class Order extends Model
         self::SETTLEMENT_STATUS_YES  => '已结算'
     ];
 
+    //关联订单商品表
+    public function orderGoods()
+    {
+        $this->hasMany(OrderGood::class, 'order_id', 'id');
+    }
+
 }

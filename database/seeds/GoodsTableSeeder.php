@@ -25,7 +25,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 16,
                 'sales_count_month' => 650,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -42,7 +41,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 26,
                 'sales_count_month' => 950,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -59,7 +57,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 56,
                 'sales_count_month' => 1550,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -76,7 +73,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 56,
                 'sales_count_month' => 1550,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -93,7 +89,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 16,
                 'sales_count_month' => 650,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -110,7 +105,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 16,
                 'sales_count_month' => 650,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -127,7 +121,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 26,
                 'sales_count_month' => 950,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -144,7 +137,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 56,
                 'sales_count_month' => 1550,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -161,7 +153,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 56,
                 'sales_count_month' => 1550,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -178,7 +169,6 @@ class GoodsTableSeeder extends Seeder
                 'unit' => '碗',
                 'sales_count' => 16,
                 'sales_count_month' => 650,
-                'is_must_check' => 0,
                 'shelves_status' => 1,
                 'sale_status' => 1,
                 'is_del' => 0
@@ -198,7 +188,6 @@ class GoodsTableSeeder extends Seeder
             $good->unit = $item['unit'];
             $good->sales_count = $item['sales_count'];
             $good->sales_count_month = $item['sales_count_month'];
-            $good->is_must_check = $item['is_must_check'];
             $good->shelves_status = $item['shelves_status'];
             $good->sale_status = $item['sale_status'];
             $good->is_del = $item['is_del'];

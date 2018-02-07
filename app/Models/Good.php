@@ -13,10 +13,6 @@ class Good extends Model
     const IS_SKU_YES = 1;
     const IS_SKU_NO  = 0;
 
-    //是否必选商品   1-是  0-否 默认 0
-    const IS_MUST_CHECK_YES = 1;
-    const IS_MUST_CHECK_NO  = 0;
-
     //上架状态 1-上架 0-下架 默认 1（后台管理）
     const SHELVES_STATUS_YES = 1;
     const SHELVES_STATUS_NO  = 0;
@@ -28,5 +24,14 @@ class Good extends Model
     //是否删除，1-是 0-否 默认 0
     const IS_DEL_YES = 1;
     const IS_DEL_NO  = 0;
+
+    /**
+     * 关联商品规格表
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class, "goods_id", "id");
+    }
 
 }
