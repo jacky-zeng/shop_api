@@ -13,7 +13,7 @@
 
 //todo（后续需要删除） 未便于测试 暂时允许跨域访问
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
 header('Access-Control-Allow-Methods: GET, POST, PUT,DELETE');
 
 Route::group(['middleware' => ['query_log']], function(){
