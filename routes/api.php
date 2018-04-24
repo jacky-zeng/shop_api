@@ -35,6 +35,9 @@ Route::group([
     Route::post('getMerchants', 'User\MerchantController@getMerchants');                              //获取商家列表
     Route::post('getGoodsCats', 'User\GoodsCatController@getGoodsCats');                              //获取商家商品分类
     Route::post('getGoods', 'User\GoodsController@getGoods');                                         //获取商家所有商品
+    Route::post('setRushBuyStocks', 'User\GoodsController@setRushBuyStocks');                         //设置抢购库存
+    Route::get('createRob', 'User\GoodsController@createRob');                                        //开始抢购
+    Route::get('createBadRob', 'User\GoodsController@createBadRob');                                  //开始抢购(不支持高并发)
 });
 
 Route::group([

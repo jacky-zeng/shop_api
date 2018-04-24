@@ -24,13 +24,15 @@ class Controller extends BaseController
      * 返回逻辑错误
      * @param $message
      * @param $errorCode
+     * @param array $data
      * @return mixed
      */
-    public function errorResponse($message, $errorCode)
+    public function errorResponse($message, $errorCode, $data = [])
     {
         return $this->response->withArray([
             'code' => $errorCode,
-            'message' => $message
+            'message' => $message,
+            'data' => $data
         ],[],JSON_UNESCAPED_UNICODE);
     }
 
